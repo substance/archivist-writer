@@ -1,0 +1,19 @@
+{
+  "modules": [
+    {
+      "repository": "https://github.com/substance/substance.git",
+      "folder": "node_modules/substance",
+      "branch": "master"
+    },
+    {
+      "repository": "https://github.com/substance/ui.git",
+      "folder": "node_modules/substance-ui",
+      "branch": "master"
+    },
+    {
+      "repository": "https://github.com/substance/archivist-interview.git",
+      "folder": "node_modules/archivist-interview",
+      "branch": "master"
+    }
+  ]
+}

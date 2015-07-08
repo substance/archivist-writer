@@ -1,0 +1,26 @@
+// Pull in common writer styles
+@import 'node_modules/substance-ui/writer/writer';
+
+/* Custom Scrollbar styles
+-----------------------------------------------------*/
+
+.scrollbar-component.comments .highlight {
+  background: #aaa;
+}
+
+
+.scrollbar-component.cite_bib_item .highlight {
+  background-color: #0b9dd9;
+}
+
+
+/* Text Annotations
+-----------------------------------------------------*/
+
+.annotation.strong {
+  font-weight: bold;
+}
+
+.annotation.emphasis {
+  font-style: italic;
+}
