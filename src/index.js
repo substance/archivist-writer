@@ -32,7 +32,7 @@ var stateHandlers = require('./state_handlers');
 //
 // Adjust for your own needs
 
-class ScienceWriter extends React.Component {
+class ArchivistWriter extends React.Component {
 
   constructor(props) {
     super(props);
@@ -74,7 +74,8 @@ class ScienceWriter extends React.Component {
         },
         doc: this.state.doc,
         id: "writer",
-        contentContainer: 'main'
+        contentContainer: 'content',
+        contextId: 'entities'
       });
     } else {
       return $$('div', null, '');
@@ -82,11 +83,11 @@ class ScienceWriter extends React.Component {
   }
 }
 
-ScienceWriter.displayName = "ScienceWriter";
+ArchivistWriter.displayName = "ArchivistWriter";
 
-ScienceWriter.contextTypes = {
+ArchivistWriter.contextTypes = {
   backend: React.PropTypes.object.isRequired
 };
 
 
-module.exports = ScienceWriter;
+module.exports = ArchivistWriter;
