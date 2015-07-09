@@ -5,6 +5,7 @@ var _ = require("substance/helpers");
 var TextProperty = require("substance-ui/text_property");
 var TitleEditor = require("./title_editor");
 var UnsupportedNode = require('./nodes/unsupported_node');
+var ContainerEditor = Surface.ContainerEditor;
 
 var ENABLED_TOOLS = ["strong", "emphasis", "timecode", "remark", "entity_reference", "subject_reference"];
 
@@ -35,9 +36,10 @@ var ContentEditor = React.createClass({
   },
 
   getInitialState: function() {
-    var editor = new Surface.ContainerEditor(this.props.doc.get('content'));
+    var editor = new ContainerEditor(this.props.node.id);
     // HACK: this is also Archivist specific
-    editor.defaultTextType = 'text';
+    // editor.defaultTextType = 'text';
+
     var options = {
       logger: this.context.notifications
       // scrollable: 
@@ -115,7 +117,7 @@ var ContentEditor = React.createClass({
     // Top level structure
     // ---------
 
-    return $$('div', {className: 'panel-content-inner'},
+    return $$('div', {className: 'content-editor-component panel-content-inner'},
       $$(TitleEditor),
       // The full fledged interview (ContainerEditor)
       $$("div", {ref: "interviewContent", className: "interview-content", contentEditable: true, "data-id": "content"},

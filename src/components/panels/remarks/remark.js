@@ -95,7 +95,7 @@ var Remark = React.createClass({
     if (!remark) {
       sourceText = "N/A";
     } else {
-      sourceText = "TODO: use remark.getText()"; // remark.getText();
+      sourceText = remark.getText();
     }
 
     // Shorten sourceText
