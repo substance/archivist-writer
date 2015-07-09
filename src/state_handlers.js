@@ -34,8 +34,8 @@ var stateHandlers = {
     // From entities panel
     // ---------------
     // 
-    // var doc = app.doc;
-    // var state = app.state;
+    var doc = app.doc;
+    var state = app.state;
 
     // // Let the extension handle which nodes should be highlighted
     // if (state.contextId === "entities" && state.entityId) {
@@ -45,10 +45,6 @@ var stateHandlers = {
     // } else if (state.entityReferenceId) {
     //   return [state.entityReferenceId];
     // }
-  },
-
-  getActiveContainerAnnotations: function(app) {
-    var state = app.state;
 
     // Subjects-specific
     // --------------------
@@ -57,7 +53,6 @@ var stateHandlers = {
     if (state.contextId === "editSubjectReference" && state.subjectReferenceId) {
       console.log('yay', state.subjectReferenceId);
       return [ state.subjectReferenceId ];
-
     }
 
     if (state.contextId === "subjects" && state.subjectId) {
@@ -65,6 +60,7 @@ var stateHandlers = {
       var references = Object.keys(doc.subjectReferencesIndex.get(state.subjectId));
       return references;
     }
+
   }
 };
 
