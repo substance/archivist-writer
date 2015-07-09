@@ -22,6 +22,8 @@ var tools = require('./tools');
 var components = require('./components');
 var stateHandlers = require('./state_handlers');
 
+var panelOrder = ["entities", "remarks"];
+
 // Specify a Notification service
 // ---------------
 //
@@ -70,6 +72,7 @@ class ArchivistWriter extends React.Component {
           components: components,
           tools: tools,
           stateHandlers: stateHandlers,
+          panelOrder: panelOrder
         },
         doc: this.state.doc,
         id: "writer",
