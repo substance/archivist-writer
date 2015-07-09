@@ -246,7 +246,7 @@ var ContentEditor = React.createClass({
       'document:changed': this.onDocumentChange
     });
 
-    app.registerSurface(surface, "content", {
+    app.registerSurface(surface, {
       enabledTools: ENABLED_TOOLS
     });
     surface.attach(this.refs.interviewContent.getDOMNode());

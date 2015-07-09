@@ -22,7 +22,6 @@ var tools = require('./tools');
 var components = require('./components');
 var stateHandlers = require('./state_handlers');
 
-
 // Specify a Notification service
 // ---------------
 //
@@ -75,7 +74,8 @@ class ArchivistWriter extends React.Component {
         doc: this.state.doc,
         id: "writer",
         contentContainer: 'content',
-        contextId: 'entities'
+        // contextId: 'entities'
+        contextId: 'remarks'
       });
     } else {
       return $$('div', null, '');
