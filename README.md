@@ -1,19 +1,17 @@
-# Substance Science Writer
+# Archivist Writer
 
-Substance Science Writer is an attempt to build a full-featured scientific writer that is easily customizable and can be integrated into publishing workflows. In short: Science Writer offers you everything you need to produce an article like [this one](http://lens.elifesciences.org/05098/#figures)
-
-# Install
+## Install
 
 Clone the repository.
 
 ```bash
-$ git clone https://github.com/substance/science-writer.git
+$ git clone https://github.com/substance/archivist-writer.git
 ```
 
 Navigate to the source directory.
 
 ```bash
-$ cd science-writer
+$ cd archivist-writer
 ```
 
 Install via npm
