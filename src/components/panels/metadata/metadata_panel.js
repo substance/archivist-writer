@@ -38,7 +38,8 @@ var MetadataPanel = React.createClass({
 
   getInitialState: function() {
     var app = this.context.app;
-    var surface = new Surface(this.context.surfaceManager, doc, new Surface.FormEditor());
+
+    this.surface = new Surface(this.context.surfaceManager, doc, new Surface.FormEditor());
     return null;
   },
 
@@ -449,7 +450,6 @@ var MetadataPanel = React.createClass({
         ),
         $$('div', {className: 'status section', contentEditable: false},
           $$('h3', {contentEditable: false}, "Workflow"),
-
 
           this.renderChecboxProperty('transcripted'),
           label("Transcription ready"),

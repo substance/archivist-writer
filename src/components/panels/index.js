@@ -10,6 +10,6 @@ module.exports = {
   "entities": EntitiesPanel,
   "remarks": RemarksPanel,
   "subjects": SubjectsPanel,
-  "editSubjectReference": EditSubjectReferencePanel
-  // "metadata": MetadataPanel
+  "editSubjectReference": EditSubjectReferencePanel,
+  "metadata": MetadataPanel
 };

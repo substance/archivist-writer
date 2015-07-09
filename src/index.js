@@ -20,7 +20,7 @@ var SubstanceWriter = require("substance-ui/writer");
 var tools = require('./tools');
 var components = require('./components');
 var stateHandlers = require('./state_handlers');
-var panelOrder = ["subjects", "entities", "remarks"];
+var panelOrder = ["subjects", "entities", "remarks", "metadata"];
 
 // Specify a Notification service
 // ---------------
@@ -76,7 +76,7 @@ class ArchivistWriter extends React.Component {
         id: "writer",
         contentContainer: 'content',
         // contextId: 'entities'
-        contextId: 'remarks'
+        contextId: 'metadata'
       });
     } else {
       return $$('div', null, '');
