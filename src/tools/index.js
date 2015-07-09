@@ -4,8 +4,6 @@ var SubstanceTools = require('substance').Surface.Tools;
 
 delete BuiltInTools.save;
 
-console.log('BuiltInTools', BuiltInTools);
-
 module.exports = _.extend({}, BuiltInTools, {
   "export": require("./export_tool"),
   "emphasis": SubstanceTools.Emphasis,

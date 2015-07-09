@@ -13,16 +13,14 @@ var $$ = React.createElement;
 
 var SubstanceWriter = require("substance-ui/writer");
 
-// Article
+// Configuration
 // ---------------
 //
-// This can be replaced with your custom article implementation
 
 var tools = require('./tools');
 var components = require('./components');
 var stateHandlers = require('./state_handlers');
-
-var panelOrder = ["entities", "remarks"];
+var panelOrder = ["subjects", "entities", "remarks"];
 
 // Specify a Notification service
 // ---------------

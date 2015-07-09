@@ -27,7 +27,6 @@ var TagEntityToolMixin = _.extend({}, AnnotationToolMixin, {
       AnnotationToolMixin.performAction.call(this);
     }
   },
-
   disabledModes: ["remove", "fusion"],
 });
 

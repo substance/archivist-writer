@@ -1,5 +1,3 @@
-var $$ = React.createElement;
-
 // HACK: remember previous selection so we can check if a selection has changed
 var prevSelection;
 
@@ -20,7 +18,6 @@ var stateHandlers = {
     //   });
     //   return true;
     // }
-
   },
 
   // Determine highlighted nodes
@@ -48,6 +45,26 @@ var stateHandlers = {
     // } else if (state.entityReferenceId) {
     //   return [state.entityReferenceId];
     // }
+  },
+
+  getActiveContainerAnnotations: function(app) {
+    var state = app.state;
+
+    // Subjects-specific
+    // --------------------
+    // 
+    // When a subject has been clicked in the subjects panel
+    if (state.contextId === "editSubjectReference" && state.subjectReferenceId) {
+      console.log('yay', state.subjectReferenceId);
+      return [ state.subjectReferenceId ];
+
+    }
+
+    if (state.contextId === "subjects" && state.subjectId) {
+      var doc = app.doc;
+      var references = Object.keys(doc.subjectReferencesIndex.get(state.subjectId));
+      return references;
+    }
   }
 };
 
