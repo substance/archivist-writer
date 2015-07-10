@@ -13,8 +13,9 @@
     "lodash": "3.3.1",
     "node-polyglot": "^0.4.1",
     "node-sass": "3.x",
-    "substance": "substance/substance#master",
-    "substance-ui": "substance/ui#master"
+    "substance": "substance/substance#b39e889e8c8653aaf3329f03e39c444c182f173a",
+    "substance-ui": "substance/ui#361ed8df6dda87031e5e5342662778ace405c822",
+    "archivist-interview": "substance/archivist-interview#689b3c4ba5c42f4bbf3f96e2c29acfbf3e1697b4"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
