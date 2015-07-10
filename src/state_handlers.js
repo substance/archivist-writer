@@ -46,12 +46,12 @@ var stateHandlers = {
     //   return [state.entityReferenceId];
     // }
 
+
     // Subjects-specific
     // --------------------
     // 
     // When a subject has been clicked in the subjects panel
     if (state.contextId === "editSubjectReference" && state.subjectReferenceId) {
-      console.log('yay', state.subjectReferenceId);
       return [ state.subjectReferenceId ];
     }
 
