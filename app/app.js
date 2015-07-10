@@ -25,7 +25,6 @@ var backend = new Backend();
 
 var NotificationService = require("./notification_service");
 var notifications = new NotificationService();
-var CrossrefSearch = require('../lib/article/bib/crossref_search');
 
 // React Components
 // ---------------
@@ -43,14 +42,12 @@ var App = React.createClass({
 
   childContextTypes: {
     backend: React.PropTypes.object,
-    notifications: React.PropTypes.object,
-    bibSearchEngines: React.PropTypes.array
+    notifications: React.PropTypes.object
   },
 
   getChildContext: function() {
     return {
       backend: backend,
-      bibSearchEngines: [new CrossrefSearch()],
       notifications: notifications,      
     };
   },

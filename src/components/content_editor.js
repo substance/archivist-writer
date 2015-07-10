@@ -79,11 +79,11 @@ var ContentEditor = React.createClass({
 
     var subjectReferences = doc.getIndex('type').get('subject_reference');
     var subjectRefComponents = [];
-    var activeContainerAnnotations = app.getActiveContainerAnnotations();
-
+    var highlightedNodes = app.getHighlightedNodes();
+    
     _.each(subjectReferences, function(sref) {
       subjectRefComponents.push($$('a', {
-        className: "subject-reference"+(_.includes(activeContainerAnnotations, sref.id) ? ' selected' : ''),
+        className: "subject-reference"+(_.includes(highlightedNodes, sref.id) ? ' selected' : ''),
         href: "#",
         "data-id": sref.id,
         onClick: this.handleToggleSubjectReference
