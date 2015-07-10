@@ -73,18 +73,16 @@ var EditSubjectReferencePanel = React.createClass({
 
   handleDeleteReference: function(e) {
     var app = this.context.app;
+    var subjectReferenceId = this.props.subjectReferenceId;
     var doc = app.doc;
-    var tx = doc.startTransaction();
 
-    try {
-      tx.delete(this.props.subjectReferenceId);
-      tx.save();
-      app.replaceState({
-        contextId: "subjects"
-      });
-    } finally {
-      tx.cleanup();
-    }
+    doc.transaction(function(tx) {
+      tx.delete(subjectReferenceId);
+    });
+
+    app.replaceState({
+      contextId: "subjects"
+    });
   },
 
   componentWillUnmount: function() {
