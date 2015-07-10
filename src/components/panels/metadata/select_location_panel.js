@@ -1,4 +1,4 @@
-var SelectEntityMixin = require("../archivist/select_entity_mixin");
+var SelectEntityMixin = require("../select_entity_mixin");
 var _ = require("substance/helpers");
 var Substance = require("substance");
 
