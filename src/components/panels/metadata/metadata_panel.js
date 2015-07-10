@@ -74,16 +74,13 @@ var MetadataPanel = React.createClass({
 
   handleWaypointDensityChange: function(e) {
     var app = this.context.app;
+    var doc = app.doc;
     var waypointId = e.currentTarget.dataset.waypointId;
     var newDensityValue = e.currentTarget.value;
 
-    var tx = app.doc.startTransaction();
-    try {
+    doc.transaction(function(tx) {
       tx.set([waypointId, "density"], newDensityValue);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   componentWillUnmount: function() {
@@ -184,29 +181,23 @@ var MetadataPanel = React.createClass({
 
   handleCheckboxChange: function(e) {
     var app = this.context.app;
+    var doc = app.doc;
     var property = e.currentTarget.name;
     var checked = e.currentTarget.checked;
 
-    var tx = app.doc.startTransaction();
-    try {
+    doc.transaction(function(tx) {
       tx.set(["document", property], checked);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   handleInterviewTypeState: function(e) {
     var app = this.context.app;
+    var doc = app.doc;
     var value = e.currentTarget.value;
 
-    var tx = app.doc.startTransaction();
-    try {
+    doc.transaction(function(tx) {
       tx.set(["document", "record_type"], value);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   handleAddPrison: function(e) {
@@ -238,51 +229,37 @@ var MetadataPanel = React.createClass({
     var app = this.context.app;
     var doc = app.doc;
 
-    var tx = app.doc.startTransaction();
-    try {
+    doc.transaction(function(tx) {
       tx.set(["document", "project_location"], null);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   handleRemoveWaypoint: function(e) {
     var app = this.context.app;
+    var doc = app.doc;
     var waypointId = e.currentTarget.dataset.id;
     e.preventDefault();
-    var doc = app.doc;
 
-    var tx = app.doc.startTransaction();
-    try {
+    var waypointIds = doc.get('document').interviewee_waypoints;
+    waypointIds = _.without(waypointIds, waypointId);
+
+    doc.transaction(function(tx) {
       tx.delete(waypointId);
-
-      var waypointIds = doc.get('document').interviewee_waypoints;
-      waypointIds = _.without(waypointIds, waypointId);
-
       tx.set(["document", "interviewee_waypoints"], waypointIds);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   handleRemovePrison: function(e) {
     var app = this.context.app;
-    var prisonId = e.currentTarget.dataset.id;
-
-    e.preventDefault();
     var doc = app.doc;
+    var prisonId = e.currentTarget.dataset.id;
     var prisonIds = doc.get('document').interviewee_prisons;
     prisonIds = _.without(prisonIds, prisonId);
+    e.preventDefault();
 
-    var tx = app.doc.startTransaction();
-    try {
+    doc.transaction(function(tx) {
       tx.set(["document", "interviewee_prisons"], prisonIds);
-      tx.save({});
-    } finally {
-      tx.cleanup();
-    }
+    });
   },
 
   renderProjectLocation: function() {

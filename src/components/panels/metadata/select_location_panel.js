@@ -7,45 +7,34 @@ var SelectPrisonPanelMixin = _.extend({}, SelectEntityMixin, {
   // Called with entityId when an entity has been clicked
   handleSelection: function(entityId) {
     var app = this.context.app;
+    var doc = app.doc;
     
     if (app.state.contextId === "selectPrison") {
       var prisonIds = doc.get('document').interviewee_prisons;
       prisonIds.push(entityId);
-      var tx = app.doc.startTransaction();
-      try {
+      
+      doc.transaction(function(tx) {
         tx.set(["document", "interviewee_prisons"], prisonIds);
-        tx.save({});
-      } finally {
-        tx.cleanup();
-      }
+      });
     } else if (app.state.contextId === "selectWaypoint") {
       var waypointIds = doc.get('document').interviewee_waypoints;
 
-      var tx = app.doc.startTransaction();
-      try {
-        // Create a new waypoint object
-        var newWaypoint = tx.create({
-          id: Substance.uuid("waypoint"),
-          type: "waypoint",
-          density: 1,
-          entityId: entityId
-        });
+      var newWaypoint = tx.create({
+        id: Substance.uuid("waypoint"),
+        type: "waypoint",
+        density: 1,
+        entityId: entityId
+      });
 
-        waypointIds.push(newWaypoint.id);
+      waypointIds.push(newWaypoint.id);
 
+      doc.transaction(function(tx) {
         tx.set(["document", "interviewee_waypoints"], waypointIds);
-        tx.save({});
-      } finally {
-        tx.cleanup();
-      }
+      });
     } else if (app.state.contextId === "selectProjectLocation") {
-      var tx = app.doc.startTransaction();
-      try {
+      doc.transaction(function(tx) {
         tx.set(["document", "project_location"], entityId);
-        tx.save({});
-      } finally {
-        tx.cleanup();
-      }
+      });
     }
 
     app.replaceState({
