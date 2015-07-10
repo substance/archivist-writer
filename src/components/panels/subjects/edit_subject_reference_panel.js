@@ -44,7 +44,6 @@ var EditSubjectReferencePanel = React.createClass({
     var app = this.context.app;
 
     return {
-      subjectReferenceId: app.state.subjectReferenceId,
       subjects: null
     };
   },
@@ -63,7 +62,7 @@ var EditSubjectReferencePanel = React.createClass({
 
   handleDocumentChange: function(change, info) {
     // console.log('handle document change');
-    var refId = this.state.subjectReferenceId;
+    var refId = this.props.subjectReferenceId;
 
     if (info.updateSubjectReference) return;
 
@@ -78,7 +77,7 @@ var EditSubjectReferencePanel = React.createClass({
     var tx = doc.startTransaction();
 
     try {
-      tx.delete(this.state.subjectReferenceId);
+      tx.delete(this.props.subjectReferenceId);
       tx.save();
       app.replaceState({
         contextId: "subjects"
@@ -101,7 +100,7 @@ var EditSubjectReferencePanel = React.createClass({
     var subjectIds = Object.keys(selectedNodes);
     var tx = app.doc.startTransaction();
     try {
-      tx.set([this.state.subjectReferenceId, "target"], subjectIds);
+      tx.set([this.props.subjectReferenceId, "target"], subjectIds);
       tx.save({}, {updateSubjectReference: true});
     } finally {
       tx.cleanup();
@@ -119,7 +118,7 @@ var EditSubjectReferencePanel = React.createClass({
     if (this.state.subjects) {
       treeEl = $$(Tree, {
         ref: "treeWidget",
-        selectedNodes: doc.get(this.state.subjectReferenceId).target,
+        selectedNodes: doc.get(this.props.subjectReferenceId).target,
         tree: this.state.subjects.tree,
         onSelectionChanged: this.updateSubjectReference
       });
