@@ -98,9 +98,9 @@ var EditSubjectReferencePanel = React.createClass({
     var doc = app.doc;
     var subjectIds = Object.keys(selectedNodes);
 
-    doc.transaction({updateSubjectReference: true}, function(tx) {
+    doc.transaction({}, {updateSubjectReference: true}, function(tx) {
       tx.set([this.props.subjectReferenceId, "target"], subjectIds);
-    });
+    }.bind(this));
   },
 
   // Rendering
