@@ -2,16 +2,22 @@ var Tree = require("./tree");
 var Substance = require("substance");
 
 var SubjectsModel = function(doc, subjects) {
-  this.doc = doc;
+  this.doc = doc;  
 
   // Convert subjects to hash
   this.subjects = {};
 
   Substance.each(subjects, function(subject) {
+    var references = doc.subjectReferencesIndex.get(subject.id);
+
     this.subjects[subject.id] = subject;
+    this.subjects[subject.id].references = Substance._.pluck(references, 'id')
+
   }, this);
 
   this.tree = new Tree(this.subjects);
+
+  debugger;
 };
 
 // Get tree representation suitable for jsTree widget
