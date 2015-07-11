@@ -128,16 +128,16 @@ var sampleDoc = {
       "target": ["54bae4cda868bc6fab4bcd0e", "54bae99ca868bc3ec7fb5ad8"]
     },
 
-    "remark_1": {
-      "id": "remark_1",
-      "type": "remark",
-      "container": "content",
-      "startPath": ["text_1", "content"],
-      "startOffset": 20,
-      "endPath": ["text_2", "content"],
-      "endOffset": 298,
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis scelerisque ligula. Proin tristique ligula id magna finibus rhoncus. Quisque dictum viverra sapien, vel elementum metus condimentum nec. Donec ac tellus nunc. Nullam fermentum pharetra justo, accumsan tristique quam tempus a. Quisque vitae luctus velit."
-    },
+    // "remark_1": {
+    //   "id": "remark_1",
+    //   "type": "remark",
+    //   "container": "content",
+    //   "startPath": ["text_1", "content"],
+    //   "startOffset": 20,
+    //   "endPath": ["text_2", "content"],
+    //   "endOffset": 298,
+    //   "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis scelerisque ligula. Proin tristique ligula id magna finibus rhoncus. Quisque dictum viverra sapien, vel elementum metus condimentum nec. Donec ac tellus nunc. Nullam fermentum pharetra justo, accumsan tristique quam tempus a. Quisque vitae luctus velit."
+    // },
 
     "remark_2": {
       "id": "remark_2",
