@@ -11,6 +11,11 @@ var stateHandlers = {
     if (sel.isNull() || !sel.isPropertySelection() || !sel.isCollapsed()) return false;
     if (surface.getContainerName() !== "content") return false;
 
+    if (sel.equals(prevSelection)) {
+      return;
+    }
+    prevSelection = sel;
+
 
     // From entities panel
     // ---------------
@@ -22,7 +27,8 @@ var stateHandlers = {
       var ref = annotations[0];
       app.replaceState({
         contextId: "showEntityReference",
-        entityReferenceId: ref.id
+        entityReferenceId: ref.id,
+        noScroll: true
       });
       return true;
     }

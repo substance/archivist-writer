@@ -64,7 +64,8 @@ var ContentEditor = React.createClass({
     } else {
       app.replaceState({
         contextId: "editSubjectReference",
-        subjectReferenceId: subjectReferenceId
+        subjectReferenceId: subjectReferenceId,
+        noScroll: true
       });
     }
   },

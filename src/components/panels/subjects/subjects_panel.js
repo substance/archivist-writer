@@ -72,8 +72,7 @@ var SubjectsPanelMixin = _.extend({}, PanelMixin, {
     } else {
       app.replaceState({
         contextId: "subjects",
-        subjectId: subjectId,
-        noScroll: true
+        subjectId: subjectId
       });
     }
   },
