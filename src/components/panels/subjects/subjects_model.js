@@ -11,13 +11,11 @@ var SubjectsModel = function(doc, subjects) {
     var references = doc.subjectReferencesIndex.get(subject.id);
 
     this.subjects[subject.id] = subject;
-    this.subjects[subject.id].references = Substance._.pluck(references, 'id')
+    this.subjects[subject.id].references = Substance._.pluck(references, 'id');
 
   }, this);
 
   this.tree = new Tree(this.subjects);
-
-  debugger;
 };
 
 // Get tree representation suitable for jsTree widget
