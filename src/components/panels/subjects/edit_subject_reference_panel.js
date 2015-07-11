@@ -1,6 +1,6 @@
 var $$ = React.createElement;
 
-var SubjectsModel = require("./subjects_model");
+var SubjectsModel = require("./model");
 var _ = require("substance/helpers");
 var Tree = require("./tree_component");
 
@@ -114,7 +114,7 @@ var EditSubjectReferencePanel = React.createClass({
     if (this.state.subjects) {
       treeEl = $$(Tree, {
         ref: "treeWidget",
-        selectedNodes: doc.get(this.props.subjectReferenceId).target,
+        selectedNodes: doc.get(app.state.subjectReferenceId).target,
         tree: this.state.subjects.tree,
         onSelectionChanged: this.updateSubjectReference
       });

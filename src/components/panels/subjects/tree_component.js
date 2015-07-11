@@ -1,6 +1,6 @@
 var $$ = React.createElement;
 
-var SubjectsModel = require("./subjects_model");
+var SubjectsModel = require("./model");
 var _ = require("substance/helpers");
 
 // Tree Node Component

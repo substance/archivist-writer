@@ -80,4 +80,27 @@ SubjectsModel.prototype.getFullPathForSubject = function(subjectId) {
   return getParent(subjectId);
 };
 
+SubjectsModel.prototype.getAllReferencedSubjectsWithParents = function() {
+  var referencedSubjects = this.getAllReferencedSubjects();
+  var subjects = Substance.clone(referencedSubjects);
+  var tree = this.tree;
+  
+  Substance.each(referencedSubjects, function(subject) {
+    collectParents(subject.id);
+  });
+
+  function collectParents(nodeId) {
+    var node = tree.get(nodeId);
+    var parent = tree.getParent(nodeId);
+    if (parent) collectParents(parent.id);
+
+    subjects.push(node);
+    return;
+  }
+
+  subjects = Substance.uniq(subjects);
+  
+  return subjects;
+};
+
 module.exports = SubjectsModel;
