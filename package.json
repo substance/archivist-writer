@@ -13,7 +13,7 @@
     "lodash": "3.3.1",
     "node-polyglot": "^0.4.1",
     "node-sass": "3.x",
-    "substance": "substance/substance#ced4a5bbed38e78ae2e0095e1efffca2711376d3",
+    "substance": "substance/substance#master",
     "substance-ui": "substance/ui#21f116f38d20c6dd647e674a520859721c3b827e",
     "archivist-interview": "substance/archivist-interview#689b3c4ba5c42f4bbf3f96e2c29acfbf3e1697b4"
   },
