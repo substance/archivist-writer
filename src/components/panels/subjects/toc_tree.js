@@ -37,7 +37,7 @@ var TreeNode = React.createClass({
       }));
     });
 
-    return $$("div", {className: 'tree-node'+ (node.active ? ' active' : '')},
+    return $$("div", {className: 'tree-node'+ (node.active ? ' selected' : '')},
       $$('a', {
         href: "#",
         className: 'name',
