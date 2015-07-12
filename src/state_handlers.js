@@ -19,10 +19,10 @@ var stateHandlers = {
 
     // From entities panel
     // ---------------
-    // 
+    //
 
     var annotations = app.doc.annotationIndex.get(sel.getPath(), sel.getStartOffset(), sel.getEndOffset(), "entity_reference");
-    
+
     if (annotations.length > 0) {
       var ref = annotations[0];
       app.replaceState({
@@ -35,21 +35,21 @@ var stateHandlers = {
 
     // From remarks panel
     // ---------------
-    // 
+    //
 
-    // var annos = doc.getContainerAnnotationsForSelection(sel, contentContainer, {
-    //   type: "remark"
-    // });
+    var annos = doc.getContainerAnnotationsForSelection(sel, contentContainer, {
+      type: "remark"
+    });
 
-    // var activeRemark = annos[0];
-    // if (activeRemark) {
-    //   app.replaceState({
-    //     contextId: "remarks",
-    //     remarkId: activeRemark.id
-    //   });
+    var activeRemark = annos[0];
+    if (activeRemark) {
+      app.replaceState({
+        contextId: "remarks",
+        remarkId: activeRemark.id
+      });
 
-    //   return true;
-    // }
+      return true;
+    }
 
   },
 
@@ -69,7 +69,7 @@ var stateHandlers = {
 
     // Subjects-specific
     // --------------------
-    // 
+    //
     // When a subject has been clicked in the subjects panel
 
     if (state.contextId === "editSubjectReference" && state.subjectReferenceId) {
@@ -84,7 +84,7 @@ var stateHandlers = {
 
     // Entities-specific
     // --------------------
-    // 
+    //
     // When a subject has been clicked in the subjects panel
 
     // Let the extension handle which nodes should be highlighted
