@@ -1,7 +1,18 @@
 {
   "name": "archivist-writer",
   "description": "Archivist Writer",
+  "repository": "https://github.com/substance/archivist-writer.git",
+  "license": "NOT YET DECIDED",
   "dependencies": {
+    "substance": "substance/substance#db3f5bfba3b34d8d887396b1e3d621158c61eefa",
+    "substance-ui": "substance/ui#82390a35230e6e7eb1d671acf18946ce266cd0c3",
+    "archivist-interview": "substance/archivist-interview#689b3c4ba5c42f4bbf3f96e2c29acfbf3e1697b4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^2.0.3",
+    "gulp-uglify": "^1.2.0",
+    "through2": "^2.0.0",
     "babelify": "^6.1.2",
     "body-parser": "^1.12.4",
     "browserify": "^10.2.4",
@@ -12,16 +23,7 @@
     "js-beautify": "^1.5.6",
     "lodash": "3.3.1",
     "node-polyglot": "^0.4.1",
-    "node-sass": "3.x",
-    "substance": "substance/substance#ec08f3c01c0a04a4e5eaedc7b9bc2e9f142e883f",
-    "substance-ui": "substance/ui#21f116f38d20c6dd647e674a520859721c3b827e",
-    "archivist-interview": "substance/archivist-interview#689b3c4ba5c42f4bbf3f96e2c29acfbf3e1697b4"
-  },
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-sass": "^2.0.3",
-    "gulp-uglify": "^1.2.0",
-    "through2": "^2.0.0"
+    "node-sass": "3.x"
   },
   "scripts": {
     "bundle": "gulp"
