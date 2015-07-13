@@ -40,13 +40,13 @@ var stateHandlers = {
     var annos = doc.getContainerAnnotationsForSelection(sel, contentContainer, {
       type: "remark"
     });
-    console.log('remark annos for selection', annos);
 
     var activeRemark = annos[0];
     if (activeRemark) {
       app.replaceState({
         contextId: "remarks",
-        remarkId: activeRemark.id
+        remarkId: activeRemark.id,
+        noScroll: true
       });
 
       return true;
@@ -96,6 +96,15 @@ var stateHandlers = {
     } else if (state.entityReferenceId) {
       return [state.entityReferenceId];
     }
+
+    // Remark-specific
+    // --------------------
+    //
+
+    if (state.contextId === "remarks" && state.remarkId) {
+      return [state.remarkId];
+    }
+
   }
 };
 
