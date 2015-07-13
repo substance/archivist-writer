@@ -117,7 +117,7 @@ var ContentEditor = React.createClass({
     // ---------
 
     return $$('div', {className: 'content-editor-component panel-content-inner'},
-      $$(TitleEditor),
+      $$(TitleEditor, {doc: doc}),
       // The full fledged interview (ContainerEditor)
       $$("div", {ref: "interviewContent", className: "interview-content", contentEditable: true, "data-id": "content"},
         $$("div", {
