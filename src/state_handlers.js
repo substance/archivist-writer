@@ -40,6 +40,7 @@ var stateHandlers = {
     var annos = doc.getContainerAnnotationsForSelection(sel, contentContainer, {
       type: "remark"
     });
+    console.log('remark annos for selection', annos);
 
     var activeRemark = annos[0];
     if (activeRemark) {
