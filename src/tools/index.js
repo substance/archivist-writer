@@ -13,5 +13,5 @@ module.exports = _.extend({}, BuiltInTools, {
   "strong": SubstanceTools.Strong,
   "link": SubstanceTools.Link,
   "entity_reference": EntityReferenceTool,
-  // "subject_reference": SubjectReferenceTool
+  "subject_reference": SubjectReferenceTool
 });

@@ -36,12 +36,11 @@ var ContentToolbarComponent = React.createClass({
 
       $$('div', {className: 'tool-group formatting clearfix float-right'},
         $$(ToolComponent, { tool: 'emphasis', title: i18n.t('menu.emphasis'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-italic"})),
-        $$(ToolComponent, { tool: 'strong', title: i18n.t('menu.strong'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bold"})),
-        $$(ToolComponent, { tool: 'whitespace', title: i18n.t('menu.whitespace'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-eraser"}))
+        $$(ToolComponent, { tool: 'strong', title: i18n.t('menu.strong'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bold"}))
       ),
       $$('div', {className: 'tool-group formatting clearfix float-right'},
-        $$(ToolComponent, { tool: 'entity_reference', title: 'Tag Entity', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bullseye"}))
-        // $$(ToolComponent, { tool: 'subject_reference', title: 'Tag Subject', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-tag"}))
+        $$(ToolComponent, { tool: 'entity_reference', title: 'Tag Entity', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bullseye"})),
+        $$(ToolComponent, { tool: 'subject_reference', title: 'Tag Subject', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-tag"}))
       )
     );
   }
