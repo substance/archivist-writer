@@ -4,7 +4,7 @@
   "repository": "https://github.com/substance/archivist-writer.git",
   "license": "NOT YET DECIDED",
   "dependencies": {
-    "substance": "substance/substance#fb886e25e61c46cc5abb1c5b84a1f5ae13a2e4ec",
+    "substance": "substance/substance#0fd6b98d575a3b2ddd0db96455cb397bfbb5922c",
     "substance-ui": "substance/ui#a8b0689f82bbc41a4246fd74d19f4181506b283e",
     "archivist-interview": "substance/archivist-interview#689b3c4ba5c42f4bbf3f96e2c29acfbf3e1697b4"
   },
