@@ -15,7 +15,7 @@ var $$ = React.createElement;
 // ---------------
 //
 
-var Backend = require("./backend");
+var Backend = require("./local_backend");
 var backend = new Backend();
 
 // Specify a notification service
