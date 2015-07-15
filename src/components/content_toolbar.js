@@ -40,6 +40,9 @@ var ContentToolbarComponent = React.createClass({
         $$(ToolComponent, { tool: 'strong', title: i18n.t('menu.strong'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bold"}))
       ),
       $$('div', {className: 'tool-group formatting clearfix float-right'},
+        $$(ToolComponent, { tool: 'indentation', title: i18n.t('menu.indentation'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-dedent"}))
+      ),
+      $$('div', {className: 'tool-group formatting clearfix float-right'},
         $$(ToolComponent, { tool: 'remark', title: 'Remark', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-comment"})),
         $$(ToolComponent, { tool: 'entity_reference', title: 'Tag Entity', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bullseye"})),
         $$(ToolComponent, { tool: 'subject_reference', title: 'Tag Subject', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-tag"}))
