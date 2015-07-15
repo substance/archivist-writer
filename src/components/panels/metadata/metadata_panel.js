@@ -66,7 +66,8 @@ var MetadataPanel = React.createClass({
         change.isAffected(["document", "record_type"]) ||
         change.isAffected(["document", "transcripted"]) ||
         change.isAffected(["document", "verified"]) ||
-        change.isAffected(["document", "finished"])) {
+        change.isAffected(["document", "finished"]) ||
+        change.isAffected(["document", "published"])) {
       this.loadMetadata();
     }
   },
@@ -316,7 +317,7 @@ var MetadataPanel = React.createClass({
 
     return $$("div", {className: "panel metadata-panel-component", contentEditable: true, "data-id": "metadata"},
       $$('div', {className: 'panel-content'},
-        $$('div', {className: 'abstracts section'},
+        $$('div', {className: 'summary section'},
           $$('h3', {contentEditable: false}, "Short summary"),
           // Short summary in russian
           label("Russian"),
@@ -324,8 +325,9 @@ var MetadataPanel = React.createClass({
 
           // Short summary in english
           label("English"),
-          this.renderTextProperty('short_summary_en'),
+          this.renderTextProperty('short_summary_en')
         ),
+
         $$('div', {className: 'abstracts section'},
           $$('h3', {contentEditable: false}, "Summary"),
           // Russian abstract
@@ -334,7 +336,7 @@ var MetadataPanel = React.createClass({
 
           // English abstract
           label("English"),
-          this.renderTextProperty('abstract_en')
+          this.renderTextProperty('abstract_en'),
 
           // German abstract
           label("German"),
