@@ -35,6 +35,7 @@ var ContentToolbarComponent = React.createClass({
       $$('div', {className: 'tool-group actions clearfix'}),
 
       $$('div', {className: 'tool-group formatting clearfix float-right'},
+        $$(ToolComponent, { tool: 'timecode', title: i18n.t('menu.timecode'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-clock-o"})),
         $$(ToolComponent, { tool: 'emphasis', title: i18n.t('menu.emphasis'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-italic"})),
         $$(ToolComponent, { tool: 'strong', title: i18n.t('menu.strong'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bold"}))
       ),
