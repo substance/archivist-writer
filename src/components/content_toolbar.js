@@ -28,7 +28,7 @@ var ContentToolbarComponent = React.createClass({
       $$('div', {className: 'tool-group document clearfix'},
         $$(ToolComponent, { tool: 'undo', title: i18n.t('menu.undo'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-undo"})),
         $$(ToolComponent, { tool: 'redo', title: i18n.t('menu.redo'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-repeat"})),
-        // $$(ToolComponent, { tool: 'save', title: i18n.t('menu.save'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-save"})),
+        $$(ToolComponent, { tool: 'save', title: i18n.t('menu.save'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-save"})),
         $$(ToolComponent, { tool: 'export', title: i18n.t('menu.export'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-download"}))
       ),
 

@@ -6,8 +6,6 @@ var SubjectReferenceTool = require('./subject_reference_tool');
 var RemarkTool = require('./remark_tool');
 var TimecodeTool = require('./timecode_tool');
 
-delete BuiltInTools.save;
-
 module.exports = _.extend({}, BuiltInTools, {
   "export": require("./export_tool"),
   "whitespace": require("./whitespace"),
