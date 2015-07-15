@@ -68,18 +68,15 @@ var Remark = React.createClass({
     e.preventDefault();
     var app = this.context.app;
     var doc = app.doc;
-    var tx = doc.startTransaction();
+    var props = this.props;
 
-    try {
-      tx.delete(this.props.remark.id);
-      tx.save();
-      app.replaceState({
-        contextId: "remarks",
-        remarkId: null
-      });
-    } finally {
-      tx.cleanup();
-    }
+    doc.transaction(function(tx) {
+      tx.delete(props.remark.id);
+    });
+
+    app.replaceState({
+      contextId: "remarks"
+    });
   },
 
   render: function() {
@@ -102,7 +99,7 @@ var Remark = React.createClass({
     if (sourceText.length > 130) {
       sourceText = sourceText.slice(0,130) + " ...";
     }
-    
+
     return $$("div", {className: className.join(" "), "data-id": remark.id},
       $$('div', {contentEditable: false, className: 'remark-header', onMouseDown: this.handleToggle},
         $$('a', {href: "#", className: 'remark-title'}, sourceText),
