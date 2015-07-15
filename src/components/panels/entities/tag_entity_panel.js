@@ -6,16 +6,13 @@ var TagEntityPanelMixin = _.extend({}, SelectEntityMixin, {
   // Called with entityId when an entity has been clicked
   handleSelection: function(entityId) {
     var app = this.context.app;
+    var doc = app.doc;
     var entityReferenceId = this.props.entityReferenceId;
 
     if (entityReferenceId) {
-      var tx = app.doc.startTransaction();
-      try {
+      doc.transaction(function(tx) {
         tx.set([entityReferenceId, "target"], entityId);
-        tx.save({});
-      } finally {
-        tx.cleanup();
-      }
+      });
 
       app.replaceState({
         contextId: "showEntityReference",
