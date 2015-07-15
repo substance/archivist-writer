@@ -7,11 +7,6 @@ var detectWhitespace = function(text) {
 }
 
 function cleanIndentationInTextProperty(tx, args) {
-  // var matches = searchInTextProperty(tx, {
-  //   path: args.path,
-  //   searchStr: args.searchStr
-  // });
-
   var text = tx.get(args.path);
 
   while(detectWhitespace(text) == 0) {
