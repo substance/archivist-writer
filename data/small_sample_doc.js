@@ -38,9 +38,9 @@ var sampleDoc = {
       "interview_duration": "247",
 
       // Interview subject related
-      "interviewee_bio": "Please enter russian interviewee bio.",
-      "interviewee_bio_en": "Please enter english interviewee bio.",
-      "interviewee_bio_de": "Please enter german interviewee bio.",
+      "interviewee_bio": "Please enter interviewee bio in russian",
+      "interviewee_bio_en": "Please enter interviewee bio in english",
+      "interviewee_bio_de": "Please enter interviewee bio in german",
       "interviewee_waypoints": ["waypoint_1", "waypoint_2"],
 
       // Workflow
