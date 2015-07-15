@@ -6,7 +6,7 @@
   "dependencies": {
     "substance": "substance/substance#0fd6b98d575a3b2ddd0db96455cb397bfbb5922c",
     "substance-ui": "substance/ui#a8b0689f82bbc41a4246fd74d19f4181506b283e",
-    "archivist-interview": "substance/archivist-interview#cdc65437e71f25e59edf188d87cd0e8079a811ac"
+    "archivist-interview": "substance/archivist-interview#1a620a8533e1ff9b78c4fa2c68dae813f2783322"
   },
   "devDependencies": {
     "gulp": "^3.8.11",

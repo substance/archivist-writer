@@ -61,8 +61,7 @@ var MetadataPanel = React.createClass({
   handleDocumentChange: function(change, info) {
     var refId = this.props.subjectReferenceId;
 
-    if (change.isAffected(["document", "interviewee_prisons"]) ||
-        change.isAffected(["document", "interviewee_waypoints"]) ||
+    if (change.isAffected(["document", "interviewee_waypoints"]) ||
         change.isAffected(["document", "project_location"]) ||
         change.isAffected(["document", "record_type"]) ||
         change.isAffected(["document", "transcripted"]) ||
@@ -156,7 +155,7 @@ var MetadataPanel = React.createClass({
     });
   },
 
-  renderChecboxProperty: function(property) {
+  renderCheckboxProperty: function(property) {
     var app = this.context.app;
     var checked = app.doc.get('document')[property];
 
@@ -197,14 +196,6 @@ var MetadataPanel = React.createClass({
 
     doc.transaction(function(tx) {
       tx.set(["document", "record_type"], value);
-    });
-  },
-
-  handleAddPrison: function(e) {
-    var app = this.context.app;
-    e.preventDefault();
-    app.replaceState({
-      contextId: "selectPrison"
     });
   },
 
@@ -288,27 +279,6 @@ var MetadataPanel = React.createClass({
     return $$('div', {contentEditable: false, className: 'project-location-wrapper'}, elems);
   },
 
-  renderPrisons: function() {
-    var prisonEls = this.state.prisons.map(function(prison) {
-      return $$('span', {className: 'entity-tag prison'},
-        $$('span', {className: 'name'}, prison.name),
-        $$('a', {
-          href: "#",
-          "data-id": prison.id,
-          className: 'remove-tag remove-prison',
-          onClick: this.handleRemovePrison,
-          dangerouslySetInnerHTML: {__html: '<i class="fa fa-remove"></i>'},
-        })
-      );
-    }.bind(this));
-
-    return $$('div', {className: 'prisons-wrapper', contentEditable: false},
-      label("Prisons"),
-      $$('div', {className: 'entity-tags prisons'}, prisonEls),
-      $$('a', {href: '#', className: 'add-entity add-prison', onClick: this.handleAddPrison}, "Add prison")
-    );
-  },
-
   renderWaypoints: function() {
     var app = this.context.app;
     var doc = app.doc;
@@ -347,6 +317,16 @@ var MetadataPanel = React.createClass({
     return $$("div", {className: "panel metadata-panel-component", contentEditable: true, "data-id": "metadata"},
       $$('div', {className: 'panel-content'},
         $$('div', {className: 'abstracts section'},
+          $$('h3', {contentEditable: false}, "Short summary"),
+          // Short summary in russian
+          label("Russian"),
+          this.renderTextProperty('short_summary'),
+
+          // Short summary in english
+          label("English"),
+          this.renderTextProperty('short_summary_en'),
+        ),
+        $$('div', {className: 'abstracts section'},
           $$('h3', {contentEditable: false}, "Summary"),
           // Russian abstract
           label("Russian"),
@@ -355,6 +335,10 @@ var MetadataPanel = React.createClass({
           // English abstract
           label("English"),
           this.renderTextProperty('abstract_en')
+
+          // German abstract
+          label("German"),
+          this.renderTextProperty('abstract_de')
         ),
 
         $$('div', {className: 'biography section'},
@@ -362,16 +346,18 @@ var MetadataPanel = React.createClass({
           label("Name"),
           this.renderTextProperty("title"),
 
-          label("Biography"),
+          // Russian biography
+          label("Russian"),
           this.renderTextProperty("interviewee_bio"),
 
-          label("Category"),
-          this.renderTextProperty("interviewee_category"),
+          // English biography
+          label("English"),
+          this.renderTextProperty("interviewee_bio_en"),
 
-          label("Forced labor"),
-          this.renderTextProperty("interviewee_forced_labor_type"),
+          // German biography
+          label("German"),
+          this.renderTextProperty("interviewee_bio_de"),
 
-          this.renderPrisons(),
           this.renderWaypoints()
         ),
 
@@ -400,11 +386,11 @@ var MetadataPanel = React.createClass({
           label("Media identifier"),
           this.renderTextProperty('media_id'),
 
-          // Where the interview took place
+          // Interview duration
           label("Duration (in minutes)"),
           this.renderTextProperty('interview_duration'),
 
-          // Where the interview took place
+          // When the interview was recorded
           label("Interview date"),
           this.renderTextProperty('interview_date'),
 
@@ -428,14 +414,17 @@ var MetadataPanel = React.createClass({
         $$('div', {className: 'status section', contentEditable: false},
           $$('h3', {contentEditable: false}, "Workflow"),
 
-          this.renderChecboxProperty('transcripted'),
+          this.renderCheckboxProperty('transcripted'),
           label("Transcription ready"),
 
-          this.renderChecboxProperty('verified'),
+          this.renderCheckboxProperty('verified'),
           label("Interview verified"),
 
-          this.renderChecboxProperty('finished'),
-          label("Ready for publish")
+          this.renderCheckboxProperty('finished'),
+          label("Ready for publish"),
+
+          this.renderCheckboxProperty('published'),
+          label("Published")
         )
       )
     );

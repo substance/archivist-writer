@@ -15,8 +15,11 @@ var sampleDoc = {
       "guid": "9cc2e4def8b39bc234bf5e186bafa743",
       "creator": "",
       "title": "Test document",
+      "short_summary": "Short summary in russian",
+      "short_summary_en": "Short summary in english",
       "abstract": "Russian abstract",
       "abstract_en": "Enter english abstract here",
+      "abstract_de": "Enter german abstract here",
       "created_at": "2015-03-04T10:56:18.229Z",
       "updated_at": "2015-03-04T10:56:47.425Z",
       "published_on": "2015-03-04",
@@ -35,16 +38,16 @@ var sampleDoc = {
       "interview_duration": "247",
 
       // Interview subject related
-      "interviewee_bio": "Please enter interview subject bio.",
-      "interviewee_category": "Ost-Arbeiter, concentration camp prisoner",
-      "interviewee_prisons": ["54ef1331afda2d3c024e4817", "54ef1331afda2d3c024e4818"],
-      "interviewee_forced_labor_type": "intracamp work, earthworks (construction of barracks), digging tunnels for military factories",
+      "interviewee_bio": "Please enter russian interviewee bio.",
+      "interviewee_bio_en": "Please enter english interviewee bio.",
+      "interviewee_bio_de": "Please enter german interviewee bio.",
       "interviewee_waypoints": ["waypoint_1", "waypoint_2"],
 
       // Workflow
       "transcripted": false,
       "verified": false,
-      "finished": false
+      "finished": false,
+      "published": false
     },
     "waypoint_1": {
       "id": "waypoint_1",
