@@ -16,7 +16,6 @@ var stateHandlers = {
     }
     prevSelection = sel;
 
-
     // From entities panel
     // ---------------
     //
@@ -78,10 +77,7 @@ var stateHandlers = {
     }
 
     if (state.contextId === "subjects" && state.subjectId) {
-      var doc = app.doc;
-      var references = Object.keys(doc.subjectReferencesIndex.get(state.subjectId));
-      // TODO add parent nodes!!!
-      return references;
+      return doc.subjects.getReferencesForSubject(state.subjectId);
     }
 
     // Entities-specific

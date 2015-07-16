@@ -31,15 +31,11 @@ var EditSubjectReferencePanel = React.createClass({
     doc.connect(this, {
       'document:changed': this.handleDocumentChange
     });
-    // this.loadSubjects();
   },
 
   handleDocumentChange: function(change, info) {
-    // console.log('handle document change');
     var refId = this.props.subjectReferenceId;
-
     if (info.updateSubjectReference) return;
-
     if (change.isAffected([refId, "target"])) {
       this.forceUpdate();
     }
