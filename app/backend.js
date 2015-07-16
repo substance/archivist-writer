@@ -49,6 +49,8 @@ Backend.Prototype = function() {
 
   this.getDocument = function(documentId, cb) {
     var doc = Interview.fromJson(EXAMPLE_DOC);
+    var subjects = new Interview.SubjectsModel(doc, SUBJECTS);
+    doc.subjects = subjects;
     this.doc = doc;
     window.doc = doc;
     cb(null, doc);
@@ -74,14 +76,6 @@ Backend.Prototype = function() {
 
   this.searchEntities = function(searchStr, type, cb) {
     cb(null, SEARCH_RESULT);
-  };
-
-  // Subjects
-  // ------------------
-
-  this.getSubjects = function(cb) {
-    var subjects = new Interview.SubjectsModel(this.doc, SUBJECTS);
-    cb(null, subjects);
   };
 
 };

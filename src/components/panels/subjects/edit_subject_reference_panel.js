@@ -22,31 +22,6 @@ var EditSubjectReferencePanel = React.createClass({
     });
   },
 
-  // Data loading methods
-  // ------------
-
-  loadSubjects: function() {
-    var app = this.context.app;
-    var backend = this.context.backend;
-
-    backend.getSubjects(function(err, subjects) {
-      this.setState({
-        subjects: subjects
-      });
-    }.bind(this));
-  },
-
-  // State relevant things
-  // ------------
-
-  getInitialState: function() {
-    var app = this.context.app;
-
-    return {
-      subjects: null
-    };
-  },
-
   // Events
   // ------------
 
@@ -56,7 +31,7 @@ var EditSubjectReferencePanel = React.createClass({
     doc.connect(this, {
       'document:changed': this.handleDocumentChange
     });
-    this.loadSubjects();
+    // this.loadSubjects();
   },
 
   handleDocumentChange: function(change, info) {
@@ -111,16 +86,12 @@ var EditSubjectReferencePanel = React.createClass({
     var app = this.context.app;
     var doc = app.doc;
 
-    if (this.state.subjects) {
-      treeEl = $$(Tree, {
-        ref: "treeWidget",
-        selectedNodes: doc.get(app.state.subjectReferenceId).target,
-        tree: this.state.subjects.tree,
-        onSelectionChanged: this.updateSubjectReference
-      });
-    } else {
-      treeEl = $$('div', {className: "subjects-tree", ref: 'subjectsTree'}, "Loading subjects");
-    }
+    treeEl = $$(Tree, {
+      ref: "treeWidget",
+      selectedNodes: doc.get(app.state.subjectReferenceId).target,
+      tree: doc.subjects.getTree(),
+      onSelectionChanged: this.updateSubjectReference
+    });
 
     return $$("div", {className: "panel dialog edit-subject-reference-panel-component"},
       $$('div', {className: "dialog-header"},
