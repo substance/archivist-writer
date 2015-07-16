@@ -1,6 +1,5 @@
 var $$ = React.createElement;
 var Substance = require("substance");
-var SubjectsModel = require("./model");
 var PanelMixin = require("substance-ui/panel_mixin");
 var _ = require("substance/helpers");
 
@@ -28,18 +27,8 @@ var SubjectsPanelMixin = _.extend({}, PanelMixin, {
     var self = this;
 
     backend.getSubjects(function(err, subjects) {
-      // this.setState({
-      //   subjects: new SubjectsModel(app.doc, subjects)
-      // });
-
-      // Fake method for filtering all subject instead of querying inside backend
-
-      var subjects = new SubjectsModel(app.doc, subjects);
-      var referencedSubjects = subjects.getAllReferencedSubjectsWithParents();
-      var filteredModel = new SubjectsModel(app.doc, referencedSubjects);
-
       this.setState({
-        subjects: filteredModel
+        subjects: subjects
       });
     }.bind(this));
   },
@@ -89,28 +78,10 @@ var SubjectsPanelMixin = _.extend({}, PanelMixin, {
       return $$("div", null, "Loading subjects ...");
     }
 
-    // Only get referenced subjects
-    // var referencedSubjects = state.subjects.getAllReferencedSubjects();
-    // var subjectNodes = referencedSubjects.map(function(subject) {
-    //   // Dynamically assign active state and a few other things
-    //   subject.active = subject.id === props.subjectId;
-    //   subject.key = subject.id;
-    //   subject.handleToggle = self.handleToggle;
-    //   subject.fullPath = state.subjects.getFullPathForSubject(subject.id);
-    //   return $$(Subject, subject);
-    // });
-
-    // return $$("div", {className: "panel subjects-panel-component"},
-    //   $$('div', {className: 'panel-content'},
-    //     $$('div', {className: 'subjects'},
-    //       subjectNodes
-    //     )
-    //   )
-    // );
-
     var treeEl;
     var app = this.context.app;
     var doc = app.doc;
+    console.log(this.state.subjects);
     var tree = this.state.subjects.tree;
 
     Substance.map(tree.nodes, function(subject) {
@@ -122,7 +93,7 @@ var SubjectsPanelMixin = _.extend({}, PanelMixin, {
     if (this.state.subjects) {
       treeEl = $$(Tree, {
         ref: "treeWidget",
-        tree: this.state.subjects.tree
+        tree: this.state.subjects.getReferencedSubjectsTree()
       });
     } else {
       treeEl = $$('div', {className: "subjects-tree", ref: 'subjectsTree'}, "Loading subjects");

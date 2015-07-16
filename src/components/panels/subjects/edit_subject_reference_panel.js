@@ -1,6 +1,5 @@
 var $$ = React.createElement;
 
-var SubjectsModel = require("./model");
 var _ = require("substance/helpers");
 var Tree = require("./tree_component");
 
@@ -32,7 +31,7 @@ var EditSubjectReferencePanel = React.createClass({
 
     backend.getSubjects(function(err, subjects) {
       this.setState({
-        subjects: new SubjectsModel(app.doc, subjects)
+        subjects: subjects
       });
     }.bind(this));
   },
