@@ -1,3 +1,5 @@
+var _ = require('substance/helpers');
+
 // HACK: remember previous selection so we can check if a selection has changed
 var prevSelection;
 
@@ -93,12 +95,12 @@ var stateHandlers = {
       return [state.entityReferenceId];
     }
 
-    // Remark-specific
+    // Comment-specific
     // --------------------
     //
 
-    if (state.contextId === "remarks" && state.remarkId) {
-      return [state.remarkId];
+    if (_.includes(["show-comment", "edit-comment"], state.contextId) && state.commentId) {
+      return [state.commentId];
     }
 
   }
