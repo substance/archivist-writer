@@ -75,6 +75,10 @@ class CommentsPanel extends Panel {
         className: 'comment',
         onClick: this.handleClick.bind(this)
       },
+        $$('div', {className: 'meta'},
+          $$('span', {className: 'creator'}, comment.creator),
+          $$('span', {className: 'created-at'}, comment.created_at)
+        ),
         $$('div', null,
           $$('span', {className: 'title'}, sourceText)
         ),
