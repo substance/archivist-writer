@@ -141,7 +141,7 @@ var sampleDoc = {
       "startOffset": 300,
       "endPath": ["text_1", "content"],
       "endOffset": 520,
-      "content": "<strong>Pellentesque</strong> eget magna <em>porta</em>, rutrum odio et, commodo lacus. Sed vitae vehicula ante. Quisque suscipit iaculis est, vitae aliquet lacus dictum ut."
+      "content": "<p><strong>Pellentesque</strong> eget magna <em>porta</em>, rutrum odio et, commodo lacus. Sed vitae vehicula ante. Quisque suscipit iaculis est, vitae aliquet lacus dictum ut.</p>"
     },
 
     "text_3": {
