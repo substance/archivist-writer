@@ -286,7 +286,7 @@ var MetadataPanel = React.createClass({
     var waypoints = doc.get("document").getWaypoints();
 
     var waypointEls = waypoints.map(function(waypoint) {
-      waypointLocation = this.state.waypointLocations[waypoint.entityId];
+      var waypointLocation = this.state.waypointLocations[waypoint.entityId];
 
       return $$('span', {className: 'entity-tag waypoint'},
         $$('span', {className: 'name'}, waypointLocation.name),
