@@ -6,7 +6,6 @@
   "dependencies": {
     "substance": "substance/substance#master",
     "substance-ui": "substance/ui#master",
-    "substance-html-editor": "substance/html-editor#master",
     "archivist-interview": "substance/archivist-interview#master"
   },
   "devDependencies": {
