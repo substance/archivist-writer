@@ -25,6 +25,11 @@
     "node-polyglot": "^0.4.1",
     "node-sass": "3.x"
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "scripts": {
     "bundle": "gulp"
   },
