@@ -2,7 +2,6 @@ var Substance = require('substance');
 var $$ = React.createElement;
 var Surface = Substance.Surface;
 var _ = require("substance/helpers");
-var TextProperty = require("substance-ui/text_property");
 var TitleEditor = require("./title_editor");
 var UnsupportedNode = require('./nodes/unsupported_node');
 var ContainerEditor = Surface.ContainerEditor;
@@ -233,7 +232,6 @@ var ContentEditor = React.createClass({
 
       subjectRefEl.removeClass('level-0 level-1 level-2');
       subjectRefEl.addClass('level-'+bracket.slot);
-      prevBracket = bracket;
     }, this);
   },
 
@@ -290,7 +288,7 @@ var ContentEditor = React.createClass({
         self.surface.rerenderDomSelection();
       });
     }
-    self.updateBrackets();
+    this.updateBrackets();
   },
 
   componentWillUnmount: function() {
