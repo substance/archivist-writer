@@ -269,7 +269,9 @@
   font-size: 14px;
 
   .button.action {
+    float: left;
     margin-top: 20px;
+    margin-right: 10px;
     background: #444;
     color: #fff;
 
@@ -278,8 +280,18 @@
     }
   }
 
-  .comment-editor {
+  .button.action.cancel {
+    background: #eee;
+    color: #444;
 
+    &:hover {
+      background: #ddd;
+    }
+  }
+
+
+  .comment-editor {
+    overflow: hidden;
     background: white;
     padding: 20px;
     border-bottom: 1px solid #ddd;
@@ -314,52 +326,6 @@
 
 }
 
-
-
-/* Remark component
------------------------------------------------------*/
-
-// .resource-container .remark {
-//   position: relative;
-//   padding: 20px;
-//   border-bottom: 1px solid #ddd;
-//   border-left: 2px solid transparent;
-// }
-
-// .resource-container .remark:hover {
-//   border-left: 2px solid rgba(255, 254, 99, 0.5);
-// }
-
-// .resource-container .remark.active {
-//   background: white;
-//   border-left: 2px solid rgba(255, 254, 99, 1);
-// }
-
-// .resource-container .remark .remark-header {
-//   padding-bottom: 20px;
-//   cursor: pointer;
-//   overflow: hidden;
-//   position: relative;
-//   padding-right: 40px;
-// }
-
-// .resource-container .remark .remark-header .delete-remark {
-//   display: block;
-//   position: absolute;
-//   right: 10px;
-//   top: 10px;
-// }
-
-// .resource-container .remark .remark-title {
-//   color: #777;
-//   font-size: 12px;
-//   background: rgba(255, 254, 99, 0.21);
-//   /*margin-right: 140px;*/
-// }
-
-// .resource-container .remark.active .remark-title {
-//   background: rgba(255, 254, 99, 1);
-// }
 
 
 /* Edit Subject Reference Panel

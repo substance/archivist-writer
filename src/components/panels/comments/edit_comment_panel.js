@@ -65,6 +65,10 @@ class EditCommentPanel extends Panel {
     doc.transaction(function(tx) {
       tx.delete(this.state.comment.id);
     }.bind(this));
+
+    this.context.app.replaceState({
+      contextId: "metadata"
+    });
   }
 
   handleSave(e) {
@@ -118,7 +122,11 @@ class EditCommentPanel extends Panel {
             $$('button', {
               className: 'button action save-comment',
               onClick: this.handleSave.bind(this)
-            }, 'Save Comment')
+            }, 'Save Comment'),
+            $$('button', {
+              className: 'button action cancel save-comment',
+              onClick: this.handleCancel.bind(this)
+            }, 'Cancel')
           ),
           $$('div', {className: 'meta'},
             $$('span', {className: 'creator'}, comment.creator),

@@ -42,7 +42,6 @@ class ShowCommentPanel extends Panel {
   handleEdit(e) {
     e.preventDefault();
 
-    console.log('TODO: handle edit');
     // Go to regular entities panel
     this.context.app.replaceState({
       contextId: "edit-comment",
@@ -52,7 +51,14 @@ class ShowCommentPanel extends Panel {
 
   handleDelete(e) {
     e.preventDefault();
-    console.log('handle delete...');
+    var doc = this.getDocument();
+    doc.transaction(function(tx) {
+      tx.delete(this.state.comment.id);
+    }.bind(this));
+
+    this.context.app.replaceState({
+      contextId: "metadata"
+    });
   }
 
   render() {
