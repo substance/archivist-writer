@@ -431,8 +431,12 @@
   background-color: rgba(11, 157, 217, 1);
 }
 
-.scrollbar-component.remarks .highlight {
-  background: rgba(255, 254, 99, 1);
+.scrollbar-component.edit-comment,
+.scrollbar-component.show-comment,
+.scrollbar-component.comments {
+  .highlight {
+    background: rgba(255, 254, 99, 1);
+  }
 }
 
 .scrollbar-component.showEntityReference .highlight,
