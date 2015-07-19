@@ -44,7 +44,7 @@ var ContentToolbarComponent = React.createClass({
         $$(ToolComponent, { tool: 'whitespace', title: i18n.t('menu.whitespace'), classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-eraser"}))
       ),
       $$('div', {className: 'tool-group formatting clearfix float-right'},
-        $$(ToolComponent, { tool: 'remark', title: 'Remark', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-comment"})),
+        $$(ToolComponent, { tool: 'comment', title: 'Comment', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-comment"})),
         $$(ToolComponent, { tool: 'entity_reference', title: 'Tag Entity', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bullseye"})),
         $$(ToolComponent, { tool: 'subject_reference', title: 'Tag Subject', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-tag"}))
       )

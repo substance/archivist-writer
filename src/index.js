@@ -20,7 +20,7 @@ var SubstanceWriter = require("substance-ui/writer");
 var tools = require('./tools');
 var components = require('./components');
 var stateHandlers = require('./state_handlers');
-var panelOrder = ["subjects", "entities", "remarks", "metadata"];
+var panelOrder = ["subjects", "entities", "metadata"];
 
 // Specify a Notification service
 // ---------------

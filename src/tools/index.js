@@ -3,7 +3,7 @@ var BuiltInTools = require('substance-ui/writer/tools');
 var SubstanceTools = require('substance').Surface.Tools;
 var EntityReferenceTool = require('./entity_reference_tool');
 var SubjectReferenceTool = require('./subject_reference_tool');
-var RemarkTool = require('./remark_tool');
+var CommentTool = require('./comment_tool');
 var TimecodeTool = require('./timecode_tool');
 var IndentationTool = require('./indentation_tool');
 
@@ -16,6 +16,6 @@ module.exports = _.extend({}, BuiltInTools, {
   "link": SubstanceTools.Link,
   "entity_reference": EntityReferenceTool,
   "subject_reference": SubjectReferenceTool,
-  "remark": RemarkTool,
+  "comment": CommentTool,
   "indentation": IndentationTool
 });

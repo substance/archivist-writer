@@ -32,22 +32,21 @@ var stateHandlers = {
       return true;
     }
 
-    // From remarks panel
+    // Comments module
     // ---------------
     //
 
     var annos = doc.getContainerAnnotationsForSelection(sel, contentContainer, {
-      type: "remark"
+      type: "comment"
     });
 
-    var activeRemark = annos[0];
-    if (activeRemark) {
+    var activeComment = annos[0];
+    if (activeComment) {
       app.replaceState({
-        contextId: "remarks",
-        remarkId: activeRemark.id,
+        contextId: "show-comment",
+        commentId: activeComment.id,
         noScroll: true
       });
-
       return true;
     }
 

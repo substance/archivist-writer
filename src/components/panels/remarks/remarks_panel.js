@@ -1,11 +1,33 @@
+'use strict';
+
 var $$ = React.createElement;
 var Substance = require("substance");
 var Surface = Substance.Surface;
 var _ = require("substance/helpers");
 var PanelMixin = require("substance-ui/panel_mixin");
 
+var Icon = require("substance-ui/font_awesome_icon");
+
+var HtmlEditor = require("substance-html-editor");
+var ToolComponent = HtmlEditor.ToolComponent;
+
+console.log('htmleditor', HtmlEditor);
+
 // Sub component
 var Remark = require("./remark");
+
+
+class Toolbar extends React.Component {
+  render() {
+    return $$("div", { className: "toolbar"},
+      $$(ToolComponent, { tool: 'emphasis', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-italic"})),
+      $$(ToolComponent, { tool: 'strong', classNames: ['button', 'tool']}, $$(Icon, {icon: "fa-bold"}))
+    );
+  }
+}
+
+
+
 
 // Subjects Panel extension
 // ----------------
@@ -54,37 +76,37 @@ var RemarksPanelMixin = _.extend({}, PanelMixin, {
     var app = this.context.app;
     var doc = app.doc;
 
-    var surface = new Surface(this.context.surfaceManager, doc, new Surface.FormEditor());
+    // var surface = new Surface(this.context.surfaceManager, doc, new Surface.FormEditor());
 
-    surface.connect(this, {
-      'selection:changed': function(sel) {
-        var currentRemarkId;
-        if (this.props.activeRemark) {
-          currentRemarkId = this.props.activeRemark.id;
-        }
+    // surface.connect(this, {
+    //   'selection:changed': function(sel) {
+    //     var currentRemarkId;
+    //     if (this.props.activeRemark) {
+    //       currentRemarkId = this.props.activeRemark.id;
+    //     }
         
-        if (!sel.getPath) return; // probably a null selection
-        var remarkId = sel.getPath()[0];
-        if (remarkId !== currentRemarkId) {
-          app.replaceState({
-            contextId: "remarks",
-            remarkId: remarkId,
-            noScroll: true
-          });
-          surface.rerenderDomSelection();          
-        }
-      }
-    });
+    //     if (!sel.getPath) return; // probably a null selection
+    //     var remarkId = sel.getPath()[0];
+    //     if (remarkId !== currentRemarkId) {
+    //       app.replaceState({
+    //         contextId: "remarks",
+    //         remarkId: remarkId,
+    //         noScroll: true
+    //       });
+    //       surface.rerenderDomSelection();          
+    //     }
+    //   }
+    // });
 
-    this.surface = surface;
+    // this.surface = surface;
   },
 
   componentDidMount: function() {
     var app = this.context.app;
-    app.registerSurface(this.surface, {
-      enabledTools: ["strong", "emphasis"]
-    });
-    this.surface.attach(this.getDOMNode());
+    // app.registerSurface(this.surface, {
+    //   enabledTools: ["strong", "emphasis"]
+    // });
+    // this.surface.attach(this.getDOMNode());
     this.updateScroll();
   },
 
@@ -109,25 +131,38 @@ var RemarksPanelMixin = _.extend({}, PanelMixin, {
   // -------------------
 
   render: function() {
-    var state = this.state;
-    var props = this.props;
-    var self = this;
 
-    var remarkNodes = state.remarks.map(function(remark) {
-      return $$(Remark, {
-        remark: remark,
-        key: remark.id,
-        active: remark === state.activeRemark,
-      });
+    return $$(HtmlEditor, {
+      ref: 'htmlEditor',
+      content: "<p>Hello worldic</p>",
+      toolbar: Toolbar,
+      surfaceManager: this.context.surfaceManager,
+      enabledTools: ["text", "strong", "emphasis"],
+      // onContentChanged: function(doc, change) {
+      //   // console.log('document changed', change);
+      //   // console.log('new content', doc.toHtml());
+      // }
     });
 
-    return $$("div", {className: "panel remarks-panel-component", contentEditable: true, 'data-id': "remarks"},
-      $$('div', {className: 'panel-content', ref: "panelContent"},
-        $$('div', {className: 'panel-content-inner remarks'},
-          remarkNodes
-        )
-      )
-    );
+    // var state = this.state;
+    // var props = this.props;
+    // var self = this;
+
+    // var remarkNodes = state.remarks.map(function(remark) {
+    //   return $$(Remark, {
+    //     remark: remark,
+    //     key: remark.id,
+    //     active: remark === state.activeRemark,
+    //   });
+    // });
+
+    // return $$("div", {className: "panel remarks-panel-component", contentEditable: true, 'data-id': "remarks"},
+    //   $$('div', {className: 'panel-content', ref: "panelContent"},
+    //     $$('div', {className: 'panel-content-inner remarks'},
+    //       remarkNodes
+    //     )
+    //   )
+    // );
   }
 });
 

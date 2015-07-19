@@ -1,25 +1,27 @@
 var Substance = require('substance');
 var AnnotationTool = Substance.Surface.AnnotationTool;
 
-var RemarkTool = AnnotationTool.extend({
-  name: "remark",
+var CommentTool = AnnotationTool.extend({
+  name: "comment",
 
   getAnnotationData: function() {
     return {
       container: "content",
-      content: ""
-    }
+      content: "<p>Enter comment</p>",
+      created_at: new Date(),
+      creator: window.currentUser.name
+    };
   },
   
   disabledModes: ["remove", "fusion"],
   afterCreate: function(anno) {
     var app = this.context.app;
     app.replaceState({
-      contextId: "remarks",
-      subjectReferenceId: anno.id,
+      contextId: "edit-comment",
+      commentId: anno.id,
       noScroll: true
     });
   }
 });
 
-module.exports = RemarkTool;
+module.exports = CommentTool;

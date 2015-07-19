@@ -1,0 +1,116 @@
+'use strict';
+
+var $$ = React.createElement;
+var _ = require("substance/helpers");
+var Panel = require("substance-ui/panel");
+
+class ShowCommentPanel extends Panel {
+
+  constructor(props) {
+    super(props);
+  }
+
+  computeState() {
+    var app = this.context.app;
+    var doc = app.doc;
+    var comment = doc.get(app.state.commentId);
+
+    return {
+      comment: comment
+    };
+  }
+
+  componentWillMount() {
+    this.state = this.computeState();
+  }
+
+  componentWillReceiveProps() {
+    this.setState(this.computeState());
+  }
+
+  // Event handlers
+  // -----------------
+
+  handleCancel(e) {
+    e.preventDefault();
+    // Go to regular entities panel
+    this.context.app.replaceState({
+      contextId: "entities"
+    });
+  }
+
+  handleEdit(e) {
+    e.preventDefault();
+
+    console.log('TODO: handle edit');
+    // Go to regular entities panel
+    this.context.app.replaceState({
+      contextId: "edit-comment",
+      commentId: this.state.comment.id
+    });
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    console.log('handle delete...');
+  }
+
+  render() {
+    var comment = this.state.comment;
+
+    return $$("div", {className: "panel dialog show-comment-panel-component"},
+      $$('div', {className: "dialog-header"},
+        $$('a', {
+          href: "#",
+          className: 'back',
+          onClick: this.handleCancel.bind(this),
+          dangerouslySetInnerHTML: {__html: '<i class="fa fa-chevron-left"></i>'}
+        }),
+        $$('div', {className: 'label'}, "Comment"),
+        $$('div', {className: 'actions'},
+          $$('a', {
+            href: "#",
+            className: "delete-comment",
+            onClick: this.handleDelete.bind(this),
+            dangerouslySetInnerHTML: {__html: '<i class="fa fa-trash"></i> Remove'}
+          }),
+          $$('a', {
+            href: "#",
+            className: "edit-comment",
+            onClick: this.handleEdit.bind(this),
+            dangerouslySetInnerHTML: {__html: '<i class="fa fa-pencil"></i> Edit'}
+          })
+        )
+      ),
+
+      $$('div', {className: "panel-content"},
+        $$('div', {className: 'comment'},
+          $$('div', {className: 'meta'},
+            $$('span', {className: 'creator'}, comment.creator),
+            $$('span', {className: 'created-at'}, comment.created_at)
+          ),
+          $$('div', {
+            className: "comment-content",
+            dangerouslySetInnerHTML: {__html: comment.content}
+          })
+        ),
+        // TODO: Display replies
+        $$('div', {className: 'replies'})
+      )
+    );
+  }
+}
+
+ShowCommentPanel.displayName = 'ShowCommentPanel';
+
+ShowCommentPanel.contextTypes = {
+  app: React.PropTypes.object.isRequired
+};
+
+// Panel Configuration
+// -----------------
+
+ShowCommentPanel.icon = 'fa-comment';
+ShowCommentPanel.isDialog = true;
+
+module.exports = ShowCommentPanel;

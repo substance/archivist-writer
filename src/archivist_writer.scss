@@ -82,11 +82,11 @@
   background-color: rgba(145, 187, 4, 0.2);
 }
 
-.container-annotation.remark.annotation-fragment {
+.container-annotation.comment.annotation-fragment {
   background: rgba(255, 254, 99, 0.3);
 }
 
-.container-annotation.remark.annotation-fragment.active {
+.container-annotation.comment.annotation-fragment.active {
   background: rgba(255, 254, 99, 0.8);
 }
 
@@ -259,50 +259,107 @@
 }
 
 
-/* Entities component
+/* Comment component
 -----------------------------------------------------*/
 
-.resource-container .remark {
-  position: relative;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
-  border-left: 2px solid transparent;
+
+.edit-comment-panel-component,
+.show-comment-panel-component {
+
+  font-size: 14px;
+
+  .button.action {
+    margin-top: 20px;
+    background: #444;
+    color: #fff;
+
+    &:hover {
+      background: #222;
+    }
+  }
+
+  .comment-editor {
+
+    background: white;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .comment-editor .body-nodes {
+    // padding: 20px;
+  }
+
+  .comment-editor .body-nodes .paragraph {
+    padding-bottom: 10px;
+  }
+
+  .comment-content {
+    padding: 20px;
+  }
+
+  .meta {
+    padding: 20px;
+    padding-bottom: 0px;
+    font-size: 12px;
+
+    .creator {
+      font-weight: 600;
+    }
+
+    .created-at {
+      padding-left: 20px;
+      font-style: italic;
+    }
+  }
+
 }
 
-.resource-container .remark:hover {
-  border-left: 2px solid rgba(255, 254, 99, 0.5);
-}
 
-.resource-container .remark.active {
-  background: white;
-  border-left: 2px solid rgba(255, 254, 99, 1);
-}
 
-.resource-container .remark .remark-header {
-  padding-bottom: 20px;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  padding-right: 40px;
-}
+/* Remark component
+-----------------------------------------------------*/
 
-.resource-container .remark .remark-header .delete-remark {
-  display: block;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
+// .resource-container .remark {
+//   position: relative;
+//   padding: 20px;
+//   border-bottom: 1px solid #ddd;
+//   border-left: 2px solid transparent;
+// }
 
-.resource-container .remark .remark-title {
-  color: #777;
-  font-size: 12px;
-  background: rgba(255, 254, 99, 0.21);
-  /*margin-right: 140px;*/
-}
+// .resource-container .remark:hover {
+//   border-left: 2px solid rgba(255, 254, 99, 0.5);
+// }
 
-.resource-container .remark.active .remark-title {
-  background: rgba(255, 254, 99, 1);
-}
+// .resource-container .remark.active {
+//   background: white;
+//   border-left: 2px solid rgba(255, 254, 99, 1);
+// }
+
+// .resource-container .remark .remark-header {
+//   padding-bottom: 20px;
+//   cursor: pointer;
+//   overflow: hidden;
+//   position: relative;
+//   padding-right: 40px;
+// }
+
+// .resource-container .remark .remark-header .delete-remark {
+//   display: block;
+//   position: absolute;
+//   right: 10px;
+//   top: 10px;
+// }
+
+// .resource-container .remark .remark-title {
+//   color: #777;
+//   font-size: 12px;
+//   background: rgba(255, 254, 99, 0.21);
+//   /*margin-right: 140px;*/
+// }
+
+// .resource-container .remark.active .remark-title {
+//   background: rgba(255, 254, 99, 1);
+// }
 
 
 /* Edit Subject Reference Panel
