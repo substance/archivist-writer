@@ -26,9 +26,9 @@
     "node-sass": "3.x"
   },
   "browserify": {
-    "transform": [
-      "babelify"
-    ]
+    "transform": [[
+      "babelify", { "only": "src" }
+    ]]
   },
   "scripts": {
     "bundle": "gulp"
