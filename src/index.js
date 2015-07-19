@@ -76,7 +76,7 @@ class ArchivistWriter extends React.Component {
         id: "writer",
         contentContainer: 'content',
         // contextId: 'entities'
-        contextId: 'metadata'
+        contextId: 'subjects'
       });
     } else {
       return $$('div', null, '');

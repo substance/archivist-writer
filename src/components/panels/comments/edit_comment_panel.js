@@ -67,7 +67,7 @@ class EditCommentPanel extends Panel {
     }.bind(this));
 
     this.context.app.replaceState({
-      contextId: "metadata"
+      contextId: "subjects"
     });
   }
 

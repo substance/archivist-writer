@@ -52,6 +52,13 @@ var stateHandlers = {
       return true;
     }
 
+    if (sel.isCollapsed() && app.state.contextId !== "editSubjectReference") {
+      app.replaceState({
+        contextId: 'metadata'
+      });
+      return true;
+    }
+
   },
 
   // Determine highlighted nodes

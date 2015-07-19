@@ -35,7 +35,7 @@ class ShowCommentPanel extends Panel {
     e.preventDefault();
     // Go to regular entities panel
     this.context.app.replaceState({
-      contextId: "entities"
+      contextId: "subjects"
     });
   }
 
@@ -57,7 +57,7 @@ class ShowCommentPanel extends Panel {
     }.bind(this));
 
     this.context.app.replaceState({
-      contextId: "metadata"
+      contextId: "subjects"
     });
   }
 
