@@ -3,10 +3,9 @@
 var $$ = React.createElement;
 var _ = require("substance/helpers");
 var Panel = require("substance-ui/panel");
-var HtmlEditor = require("substance-html-editor");
+var HtmlEditor = require("substance-ui/html-editor");
 var Icon = require("substance-ui/font_awesome_icon");
 var ToolComponent = HtmlEditor.ToolComponent;
-
 
 // Used for HtmlEditor
 // 
@@ -44,6 +43,7 @@ class EditCommentPanel extends Panel {
   }
 
   componentWillReceiveProps() {
+    console.log('receiving new props', this.computeState());
     this.setState(this.computeState());
   }
 
@@ -61,7 +61,10 @@ class EditCommentPanel extends Panel {
 
   handleDelete(e) {
     e.preventDefault();
-    console.log('handle delete...');
+    var doc = this.getDocument();
+    doc.transaction(function(tx) {
+      tx.delete(this.state.comment.id);
+    }.bind(this));
   }
 
   handleSave(e) {
@@ -75,10 +78,6 @@ class EditCommentPanel extends Panel {
 
     // Go back to show dialog
     this.handleCancel(e);
-  }
-
-  componentDidMount() {
-    console.log('component did just mount');
   }
 
   render() {
