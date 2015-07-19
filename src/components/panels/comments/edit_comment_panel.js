@@ -43,7 +43,6 @@ class EditCommentPanel extends Panel {
   }
 
   componentWillReceiveProps() {
-    console.log('receiving new props', this.computeState());
     this.setState(this.computeState());
   }
 
@@ -67,7 +66,7 @@ class EditCommentPanel extends Panel {
     }.bind(this));
 
     this.context.app.replaceState({
-      contextId: "subjects"
+      contextId: "comments"
     });
   }
 
@@ -140,8 +139,8 @@ class EditCommentPanel extends Panel {
   }
 }
 
-EditCommentPanel.displayName = 'EditCommentPanel';
 
+EditCommentPanel.displayName = 'EditCommentPanel';
 EditCommentPanel.contextTypes = {
   app: React.PropTypes.object.isRequired
 };

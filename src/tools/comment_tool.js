@@ -8,7 +8,7 @@ var CommentTool = AnnotationTool.extend({
     return {
       container: "content",
       content: "<p>Enter comment</p>",
-      created_at: new Date(),
+      created_at: new Date().toJSON(),
       creator: window.currentUser.name
     };
   },

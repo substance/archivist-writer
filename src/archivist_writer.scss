@@ -326,6 +326,36 @@
 
 }
 
+/* Comments Panel */
+
+.resource-container .comments .comment {
+  position: relative;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    // border-left: 2px solid rgba(255, 254, 99, 0.5);
+    background: #fff;
+  }
+
+  .title {
+    color: #777;
+    font-size: 12px;
+    background: rgba(255, 254, 99, 0.21);
+  }
+
+  .comment-body {
+    font-size: 14px;
+    padding-top: 20px;
+  }
+
+}
+
+
+
+
 
 
 /* Edit Subject Reference Panel
