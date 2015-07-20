@@ -64,6 +64,9 @@ class CommentsPanel extends Panel {
 
     _.each(comments, function(comment) {
 
+      var created = new Date(comment.created_at);
+      var created_at = created.toDateString() + ' ' + created.getHours() + ':' + (created.getMinutes()<10?'0':'') + created.getMinutes();
+
       var sourceText = comment.getText();
       // Shorten sourceText
       if (sourceText.length > 130) {
@@ -77,7 +80,7 @@ class CommentsPanel extends Panel {
       },
         $$('div', {className: 'meta'},
           $$('span', {className: 'creator'}, comment.creator),
-          $$('span', {className: 'created-at'}, comment.created_at)
+          $$('span', {className: 'created-at'}, created_at)
         ),
         $$('div', null,
           $$('span', {className: 'title'}, sourceText)

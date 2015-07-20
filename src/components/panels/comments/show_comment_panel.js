@@ -64,6 +64,9 @@ class ShowCommentPanel extends Panel {
   render() {
     var comment = this.state.comment;
 
+    var created = new Date(comment.created_at);
+    var created_at = created.toDateString() + ' ' + created.getHours() + ':' + (created.getMinutes()<10?'0':'') + created.getMinutes();
+
     return $$("div", {className: "panel dialog show-comment-panel-component"},
       $$('div', {className: "dialog-header"},
         $$('a', {
@@ -76,15 +79,15 @@ class ShowCommentPanel extends Panel {
         $$('div', {className: 'actions'},
           $$('a', {
             href: "#",
-            className: "delete-comment",
-            onClick: this.handleDelete.bind(this),
-            dangerouslySetInnerHTML: {__html: '<i class="fa fa-trash"></i> Remove'}
-          }),
-          $$('a', {
-            href: "#",
             className: "edit-comment",
             onClick: this.handleEdit.bind(this),
             dangerouslySetInnerHTML: {__html: '<i class="fa fa-pencil"></i> Edit'}
+          }),
+          $$('a', {
+            href: "#",
+            className: "delete-comment",
+            onClick: this.handleDelete.bind(this),
+            dangerouslySetInnerHTML: {__html: '<i class="fa fa-trash"></i> Remove'}
           })
         )
       ),
@@ -93,7 +96,7 @@ class ShowCommentPanel extends Panel {
         $$('div', {className: 'comment'},
           $$('div', {className: 'meta'},
             $$('span', {className: 'creator'}, comment.creator),
-            $$('span', {className: 'created-at'}, comment.created_at)
+            $$('span', {className: 'created-at'}, created_at)
           ),
           $$('div', {
             className: "comment-content",

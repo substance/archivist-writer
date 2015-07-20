@@ -4,9 +4,9 @@
   "repository": "https://github.com/substance/archivist-writer.git",
   "license": "NOT YET DECIDED",
   "dependencies": {
+    "archivist-interview": "substance/archivist-interview#master",
     "substance": "substance/substance#master",
-    "substance-ui": "substance/ui#master",
-    "archivist-interview": "substance/archivist-interview#master"
+    "substance-ui": "substance/ui#master"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
@@ -26,9 +26,9 @@
     "node-sass": "3.x"
   },
   "browserify": {
-    "transform": [[
-      "babelify", { "only": "src" }
-    ]]
+    "transform": [
+      ["babelify", { "only": "src" }]
+    ]
   },
   "scripts": {
     "bundle": "gulp"

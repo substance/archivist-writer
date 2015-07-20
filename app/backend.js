@@ -84,6 +84,13 @@ Backend.Prototype = function() {
     cb(null, SEARCH_RESULT);
   };
 
+  this.getUser = function() {
+    var user = {
+      username: 'John Doe'
+    }
+    return user;
+  };
+
 };
 
 Substance.initClass(Backend);

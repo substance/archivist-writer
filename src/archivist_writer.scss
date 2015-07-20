@@ -293,7 +293,7 @@
   .comment-editor {
     overflow: hidden;
     background: white;
-    padding: 20px;
+    padding: 5px 20px 20px 20px;
     border-bottom: 1px solid #ddd;
   }
 
@@ -351,6 +351,9 @@
     padding-top: 20px;
   }
 
+  .created-at {
+    padding-left: 20px;
+  }
 }
 
 

@@ -86,6 +86,9 @@ class EditCommentPanel extends Panel {
   render() {
     var comment = this.state.comment;
 
+    var created = new Date(comment.created_at);
+    var created_at = created.toDateString() + ' ' + created.getHours() + ':' + (created.getMinutes()<10?'0':'') + created.getMinutes();
+
     return $$("div", {className: "panel dialog edit-comment-panel-component"},
       $$('div', {className: "dialog-header"},
         $$('a', {
@@ -129,7 +132,7 @@ class EditCommentPanel extends Panel {
           ),
           $$('div', {className: 'meta'},
             $$('span', {className: 'creator'}, comment.creator),
-            $$('span', {className: 'created-at'}, comment.created_at)
+            $$('span', {className: 'created-at'}, created_at)
           )
         ),
         // TODO: Display replies
